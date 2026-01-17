@@ -1,0 +1,309 @@
+/* * = sélecteur universel (tous les éléments HTML) */
+* {
+    /* Supprime les marges par défaut */
+    margin: 0;
+
+    /* Supprime les espacements internes par défaut */
+    padding: 0;
+
+    /* Inclut padding + border dans la largeur/hauteur */
+    box-sizing: border-box;
+}
+
+/* html = balise racine du document */
+html {
+    /* Rend le scroll fluide quand on clique sur un lien */
+    scroll-behavior: smooth;
+}
+
+/* body = tout le contenu visible de la page */
+body {
+    /* Police principale du site */
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    /* Couleur de fond du site */
+    background: #0f172a;
+
+    /* Couleur du texte */
+    color: #e5e7eb;
+
+    /* Hauteur entre les lignes du texte */
+    line-height: 1.7;
+}
+
+/* HEADER
+Barre du haut (logo + menu)
+*/
+
+header {
+    /* Reste visible quand on scrolle */
+    position: sticky;
+
+    /* Collé en haut de la page */
+    top: 0;
+
+    /* Priorité d’affichage (au-dessus des autres éléments) */
+    z-index: 1000;
+
+    /* Couleur avec transparence */
+    background: rgba(15, 23, 42, 0.9);
+
+    /* Effet flou derrière le header */
+    backdrop-filter: blur(8px);
+
+    /* Ligne de séparation en bas */
+    border-bottom: 1px solid #1e293b;
+}
+
+/* Conteneur du header */
+header .container {
+    /* Largeur maximale */
+    max-width: 1200px;
+
+    /* Centre horizontalement */
+    margin: auto;
+
+    /* Espacement interne */
+    padding: 15px 20px;
+
+    /* Mise en ligne des éléments */
+    display: flex;
+
+    /* Espace entre logo et menu */
+    justify-content: space-between;
+
+    /* Alignement vertical */
+    align-items: center;
+}
+
+/* Logo du site */
+.logo {
+    /* Taille du texte */
+    font-size: 26px;
+
+    /* Texte en gras */
+    font-weight: bold;
+
+    /* Couleur bleue */
+    color: #e40a0a;
+
+    /* Espace entre les lettres */
+    letter-spacing: 2px;
+    text-decoration: double underline yellow;
+}
+
+/* Liste du menu */
+nav ul {
+    /* Met les liens sur une ligne */
+    display: flex;
+
+    /* Supprime les puces */
+    list-style: none;
+
+    /* Espacement entre les liens */
+    gap: 25px;
+}
+
+/* Liens du menu */
+nav a {
+    /* Supprime le soulignement */
+    text-decoration: none;
+
+    /* Couleur du texte */
+    color: #e5e7eb;
+
+    /* Épaisseur du texte */
+    font-weight: 500;
+
+    /* Nécessaire pour ::after */
+    position: relative;
+
+    /* Animation douce */
+    transition: color 0.3s;
+}
+
+/* Ligne animée sous le lien */
+nav a::after {
+    /* Élément décoratif */
+    content: "";
+
+    /* Position absolue par rapport au lien */
+    position: absolute;
+
+    /* Placée en bas */
+    bottom: -6px;
+
+    /* Commence à gauche */
+    left: 0;
+
+    /* Largeur initiale = 0 (invisible) */
+    width: 0;
+
+    /* Épaisseur de la ligne */
+    height: 2px;
+
+    /* Couleur de la ligne */
+    background: #38bdf8;
+
+    /* Animation de la largeur */
+    transition: width 0.3s;
+}
+
+/* Effet au survol */
+nav a:hover {
+    color: #38bdf8;
+}
+
+/* Ligne visible au survol */
+nav a:hover::after {
+    width: 100%;
+}
+
+/* ===============================
+   SECTIONS
+   ===============================
+*/
+
+section {
+    /* Largeur max du contenu */
+    max-width: 1200px;
+
+    /* Centre la section */
+    margin: auto;
+
+    /* Espace interne haut/bas */
+    padding: 80px 20px;
+
+    /* Animation d’apparition */
+    animation: fadeUp 1s ease both;
+}
+
+/* Animation fade + montée */
+@keyframes fadeUp {
+    from {
+        /* Invisible */
+        opacity: 0;
+
+        /* Décalé vers le bas */
+        transform: translateY(40px);
+    }
+    to {
+        /* Visible */
+        opacity: 1;
+
+        /* Position normale */
+        transform: translateY(0);
+    }
+}
+.titre1,.titre2,.titre3, .titre4, .titre5 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #38bdf8;
+    text-decoration: double underline red;
+}
+
+/* ===============================
+   ACCUEIL
+   ===============================
+*/
+
+.accueil-container {
+    /* Grille en 2 colonnes */
+    display: grid;
+
+    /* 2 colonnes de même taille */
+    grid-template-columns: 1fr 1fr;
+
+    /* Alignement vertical */
+    align-items: center;
+
+    /* Espacement entre colonnes */
+    gap: 50px;
+}
+
+.accueil-text h1 {
+    font-size: 42px;
+    margin-bottom: 20px;
+    color: #38bdf8;
+}
+
+.accueil-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+
+    /* Ombre autour de l’image */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+    /* Animation flottante */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Animation flottante de l’image */
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+.propos-image img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 20px;
+
+    /* Ombre autour de l’image */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+
+    /* Animation flottante */
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Animation flottante de l’image */
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* ===============================
+   FORMULAIRE
+   ===============================
+*/
+
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+
+    /* Supprime les bordures */
+    border: none;
+
+    background: #020617;
+    color: #e5e7eb;
+}
+
+/* Quand on clique dans le champ */
+input:focus, textarea:focus {
+    /* Contour bleu */
+    outline: 2px solid #38bdf8;
+}
+
+/* ===============================
+   FOOTER
+   ===============================
+*/
+
+footer {
+    text-align: center;
+    padding: 30px;
+
+    /* Ligne au-dessus du footer */
+    border-top: 1px solid #1e293b;
+
+    font-size: 14px;
+}
